@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const userRouter = require("./routes/userRouter");
 require("./db/connection");
 require("dotenv").config();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("helal");
 });
+
+app.use("/api/users", userRouter);
 
 app.listen(PORT, () => {
   console.log(`server is running at port ${PORT} ...`);
